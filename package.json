@@ -1,12 +1,12 @@
 {
   "name": "vue-color-setting",
   "description": "Color and gradient picker for vue.js",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "main": "./dist/index-cjs.js",
   "module": "./dist/index-es.js",
   "browser": "./dist/index-cjs.js",
   "style": "./dist/index.css",
-  "author": "Arthur Hayrapetyan",
+  "author": "wuxuweilalala",
   "license": "MIT",
   "homepage": "https://github.com/wuxuweilalala/vue-color-setting.git",
   "repository": {
@@ -56,39 +56,9 @@
     "vue": "^2.6.11",
     "vue-template-compiler": "^2.6.11"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
-  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not dead"
-  ],
-  "tags": [
-    "vue",
-    "vue.js",
-    "color-picker",
-    "gradient"
-  ],
-  "keywords": [
-    "vue",
-    "vue.js",
-    "color-picker",
-    "picker",
-    "gradient",
-    "rgb",
-    "hsv",
-    "hex"
   ]
 }
