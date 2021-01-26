@@ -9,10 +9,11 @@
       />
     </div>-->
     <div>
-      <ColorPicker
+        <!--:gradien="gradient"-->
+        <ColorPicker
           :color="color"
+          :gradient="gradient"
           :is-gradient="isShowGradient"
-          :onStartChange="color => onChange(color, 'start')"
           :onChange="color => onChange(color, 'change')"
           :onEndChange="color => onChange(color, 'end')"
       />
@@ -35,18 +36,68 @@ export default {
         red: 255,
         green: 0,
         blue: 0,
-        alpha: 1
+        alpha: 1,
       },
-      isShowGradient: false
+      isShowGradient: false,
+      gradient: {
+        type: 'solid',
+        degree: 0,
+        points: [
+          {
+            left: 0,
+            red: 255,
+            green: 255,
+            blue: 255,
+            alpha: 1,
+          },
+          {
+            left: 100,
+            red: 255,
+            green: 0,
+            blue: 0,
+            alpha: 1,
+          },
+        ],
+      }
     };
   },
-
   methods: {
-    onChange(attrs,name) {
-      console.log(attrs, name);
-      this.color = { ...attrs };
-      if (!attrs.type) return
-      this.isShowGradient = attrs.type != 'solid';
+    onChange(attrs,type) {
+      console.log(attrs,type)
+      if (!attrs.type){
+        this.gradient = {
+          type: 'solid',
+          degree: 0,
+          points: [
+            {
+              left: 0,
+              red: 255,
+              green: 255,
+              blue: 255,
+              alpha: 1,
+            },
+            {
+              left: 100,
+              red: attrs.red?attrs.red:255,
+              green: attrs.green?attrs.green:0,
+              blue: attrs.blue?attrs.blue:0,
+              alpha: attrs.alpha?attrs.alpha:1,
+            },
+          ],
+        }
+        this.isShowGradient = false;
+        this.color = { ...attrs };
+      }else {
+        let str = attrs.style.split('rgba')
+        let a =str[2].slice(1,-7).split(',')
+        this.color = {
+          red: Number(a[0]),
+          green: Number(a[1]),
+          blue: Number(a[2]),
+          alpha: Number(a[3]),
+        };
+        this.isShowGradient = attrs.type != 'solid';
+      }
     }
   }
 }

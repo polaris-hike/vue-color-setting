@@ -12,6 +12,7 @@
 
         <Solid
             v-if="!isGradient"
+            :rgba="color"
             :red="color.red"
             :green="color.green"
             :blue="color.blue"

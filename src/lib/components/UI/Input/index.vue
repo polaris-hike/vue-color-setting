@@ -7,6 +7,7 @@
                 @blur="onBlur"
                 :value="value"
                 @input="$emit('input', $event)"
+                @keydown.enter="onkeydown"
             />
         </div>
         <div class="label">

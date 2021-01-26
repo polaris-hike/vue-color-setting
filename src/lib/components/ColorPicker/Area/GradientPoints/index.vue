@@ -11,6 +11,7 @@
             <GradientPoint
                 v-for="(point, index) in points"
                 :key="index"
+                :length="points.length"
                 :activePointIndex="activePointIndex"
                 :index="index"
                 :point="point"

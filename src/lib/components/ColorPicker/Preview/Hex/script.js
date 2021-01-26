@@ -45,10 +45,18 @@ export default {
 
             this.hexValue = this.hex;
         },
+        inputDown(event){
+            this.inputBlur(event)
+        },
+        changeHex() {
+            /*const color = hexToRgb(event.target.value);
 
-        changeHex(event) {
+            if (color) {
+                console.log(color)
+            }*/
+        },
+        inputBlur(event){
             const color = hexToRgb(event.target.value);
-
             if (color) {
                 this.updateColor(color);
             }

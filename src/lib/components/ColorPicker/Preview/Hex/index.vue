@@ -5,7 +5,8 @@
             label="Hex"
             @input="changeHex"
             :onFocus="() => inProgress = true"
-            :onBlur="() => inProgress = false"
+            :onBlur="inputBlur"
+            :onkeydown="inputDown"
             :inProgress="inProgress"
             classes="hex"
         />

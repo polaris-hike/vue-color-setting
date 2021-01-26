@@ -13,6 +13,7 @@ export default {
         changeActivePointIndex: Function,
         updateGradientLeft: Function,
         removePoint: Function,
+        length:Number
     },
 
     data() {
@@ -36,6 +37,11 @@ export default {
     },
 
     methods: {
+        /*onkeydown(e){
+            if ((e.keyCode === 46 || e.keyCode === 8)){
+                console.log(e.keyCode)
+            }
+        },*/
         mouseDownHandler(event) {
             this.changeActivePointIndex(this.index);
 

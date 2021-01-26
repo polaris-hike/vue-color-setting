@@ -23,6 +23,9 @@ export default {
             type: Number,
             default: 1
         },
+        rgba:{
+          type:Object
+        },
         hue: Number,
         saturation: Number,
         value: Number,
@@ -81,7 +84,6 @@ export default {
                 green: this.green,
                 blue: this.blue,
                 alpha: this.alpha,
-
             }
         }
     },
@@ -99,6 +101,19 @@ export default {
             this.colorBlue = blue;
             this.colorAlpha = alpha;
         },
+        rgba:{
+            handler(val){
+                this.colorRed = val.red;
+                this.colorGreen = val.green;
+                this.colorBlue = val.blue;
+                this.colorAlpha = val.alpha;
+                const { hue, saturation, value } = rgbToHsv({ red: val.red, green: val.green, blue: val.blue });
+                this.colorHue = hue;
+                this.colorSaturation = saturation;
+                this.colorValue = value;
+            },
+            deep:true
+        }
     },
 
     methods: {

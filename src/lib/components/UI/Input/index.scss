@@ -7,8 +7,8 @@
     .label {
         font-size: 0.63vw;
         line-height: 1.27vw;
-        font-weight: 600;
-        margin-top: 6px;
+        font-weight: normal;
+        margin-top: 0.31vw;
         margin-bottom: 0;
         color: rgba(255, 255, 255, 0.8);
     }
@@ -31,7 +31,13 @@
             height: 24px;
             font-size: 12px;
             font-weight: 600;
-            padding: 0 6px;
+            text-align: center;
+        }
+        .input:focus {
+            border: solid 0.05vw rgba(255, 255, 255, 0.6);
+        }
+        .input::selection {
+            background-color:rgba(255, 255, 255, 0.2);
         }
     }
 }

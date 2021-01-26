@@ -10,6 +10,10 @@ export default {
         changeGradientControl: {
             type: Function,
             default: () => {}
+        },
+        updataDeg: {
+            type: Function,
+            default: () => {}
         }
     },
     data() {
@@ -31,6 +35,7 @@ export default {
 
     methods: {
         mouseDownHandler(event) {
+            //滑动开始
             const pointer = event.target;
             const pointerBox = pointer.getBoundingClientRect();
             const centerY = pointerBox.top + parseInt(8 - window.pageYOffset, 10);
@@ -44,6 +49,7 @@ export default {
         },
 
         mouseMoveHandler(event, { centerX, centerY }) {
+            //滑动中
             this.disableClick = true;
 
             const newDegree = calculateDegree(event.clientX, event.clientY, centerX, centerY);
@@ -52,6 +58,8 @@ export default {
         },
 
         mouseUpHandler(event) {
+            //滑动结束
+            this.updataDeg(event)
             const targetClasses = event.target.classList;
 
             if (targetClasses.contains('gradient-degrees') || targetClasses.contains('icon-rotate')) {
@@ -71,6 +79,13 @@ export default {
 
             if (gradientDegree >= 360) {
                 gradientDegree = 0;
+            }
+            this.changeGradientControl({ degree: parseInt(gradientDegree, 10) });
+        },
+        onClickChangeDeg(){
+            let gradientDegree = this.degree+180
+            if (gradientDegree >= 360){
+                gradientDegree = gradientDegree - 360
             }
             this.changeGradientControl({ degree: parseInt(gradientDegree, 10) });
         }

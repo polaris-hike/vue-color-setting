@@ -3,6 +3,7 @@
         <GradientControls
             :type="gradientType"
             :degree="gradientDegree"
+            :updataDeg="updateDeg"
             :changeGradientControl="changeGradientControl"
         />
 

@@ -8,7 +8,10 @@
             :onFocus="() => inProgress = true"
             :onBlur="onBlur"
             :inProgress="inProgress"
-            classes="rgb"
+            :classes="classes"
+            :onkeydown="inputDown"
+            :max="classes==='rgb'?255:100"
+            min=0
         />
     </div>
 </template>

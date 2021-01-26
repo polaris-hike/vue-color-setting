@@ -28,15 +28,15 @@ export default {
 
         gradient: {
             type: Object,
-            default: () => ({
+           /* default: () => ({
                 type: 'solid',
                 degree: 0,
                 points: [
                     {
                         left: 0,
-                        red: 0,
-                        green: 0,
-                        blue: 0,
+                        red: 255,
+                        green: 255,
+                        blue: 255,
                         alpha: 1,
                     },
                     {
@@ -47,7 +47,7 @@ export default {
                         alpha: 1,
                     },
                 ],
-            })
+            })*/
         },
 
         onStartChange: {
@@ -68,4 +68,9 @@ export default {
         Solid,
         Gradient
     },
+    data(){
+      return {
+          colorData: null
+      }
+    }
 };

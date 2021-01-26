@@ -28,6 +28,12 @@ export default {
             default: () => {
             }
         },
+        onkeydown: {
+            type: Function,
+            default: () => {
+
+            }
+        }
     },
 
     model: {
